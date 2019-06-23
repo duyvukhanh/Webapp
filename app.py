@@ -1,5 +1,4 @@
 import os
-from gmail import GMail, Message
 from flask import Flask, render_template, request, redirect, url_for, session
 from db import insert_experience, get_all_experience, get_experience_by_name, get_all_users, insert_users, insert_image, get_all_images, get_image_by_owner, delete_image_by_id
 app = Flask(__name__)
@@ -28,7 +27,7 @@ def sign():
                 session['username'] = signin_username
                 return render_template('index.html', signin_username=signin_username, logged_in=True, data=data, gallery=get_all_images())
         return render_template('index.html', signin_username=signin_username, logged_in=False, data=data, gallery=get_all_images())
-    elif 'signup_username' in request.form:
+    else:
         signup_username = request.form.get('signup_username')
         signup_password = request.form.get('signup_password')
         message = "Signup completed"
@@ -41,13 +40,6 @@ def sign():
             return render_template('sign_up_noti.html', message=message, logged_in=logged_in, gallery=get_all_images())
         insert_users(signup_username, signup_password)
         return render_template('sign_up_noti.html', message=message, logged_in=logged_in, gallery=get_all_images())
-    else:
-        email_to_send = request.form.get('email_to_send')
-        gmail = GMail('duyvukhanhc4e@gmail.com', 'vukhanhduy')
-        message = """Thank you for subscribing"""
-        msg = Message('Thank you', to=email_to_send, html=message)
-        gmail.send(msg)
-        return "Done"
 
 
 @app.route('/logout')
