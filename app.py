@@ -25,8 +25,8 @@ def sign():
         for user in data_users:
             if user['username'] == signin_username and user['password'] == signin_password:
                 session['username'] = signin_username
-                return render_template('index.html', signin_username=signin_username, logged_in=True, data=data, gallery=get_all_images())
-        return render_template('index.html', signin_username=signin_username, logged_in=False, data=data, gallery=get_all_images())
+                return render_template('index.html', signin_username=signin_username, logged_in=True, data=data, gallery=get_all_images(),user=session['username'])
+        return render_template('index.html', signin_username=signin_username, logged_in=False, data=data, gallery=get_all_images(),user=session['username'])
     else:
         signup_username = request.form.get('signup_username')
         signup_password = request.form.get('signup_password')
@@ -126,7 +126,6 @@ def upload():
 
 @app.route('/<username>/gallery')
 def user_gallery(username):
-
     x = len(get_image_by_owner(username)) // 4
     if "username" in session:
         return render_template('user_gallery.html', logged_in=True, gallery=get_image_by_owner(username), x=x, y=len(get_image_by_owner(username)), user=session['username'])
