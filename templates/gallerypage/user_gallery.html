@@ -1,0 +1,87 @@
+<!-- Gallery Section -->
+<section id="gallery" class="projects-section bg-light">
+    <div class="d-flex justify-content-center align-items-center mb-50px">
+        <h1>Gallery</h1>
+    </div>
+    <div class="w-60 mx-auto"
+        data-infinite-scroll='{ "path": ".pagination__next", "append": ".post", "history": false }'>
+
+
+
+        <div class="row-gallery-page">
+            <div class="column-gallery-page">
+                {% for i in range(x) %}
+                <div class="container-hover-image">
+                    <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+                    <div class="overlay-hover-image d-flex justify-content-center align-items-center">
+                        <a href="{{ gallery[i].link }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary">View</button>
+                        </a>
+                        <a href="{{ url_for('delete_image',image_id = gallery[i]._id,image_link = gallery[i].link ) }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary ">Delete</button>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="column-gallery-page">
+                {% for i in range(x,x+x) %}
+               <div class="container-hover-image">
+                    <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+                    <div class="overlay-hover-image d-flex justify-content-center align-items-center">
+                        <a href="{{ gallery[i].link }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary">View</button>
+                        </a>
+                        <a href="{{ url_for('delete_image',image_id = gallery[i]._id ) }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary ">Delete</button>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="column-gallery-page">
+                {% for i in range(x+x,x+x+x) %}
+                <div class="container-hover-image">
+                    <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+                    <div class="overlay-hover-image d-flex justify-content-center align-items-center">
+                        <a href="{{ gallery[i].link }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary">View</button>
+                        </a>
+                        <a href="{{ url_for('delete_image',image_id = gallery[i]._id ) }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary ">Delete</button>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="column-gallery-page">
+                {% for i in range(x+x+x,y) %}
+                <div class="container-hover-image">
+                    <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+                    <div class="overlay-hover-image d-flex justify-content-center align-items-center">
+                        <a href="{{ gallery[i].link }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary">View</button>
+                        </a>
+                        <a href="{{ url_for('delete_image',image_id = gallery[i]._id ) }}"
+                            class="button-optimize d-flex justify-content-center align-items-center mx-auto">
+                            <button type="submit" class="btn btn-primary ">Delete</button>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+</section>

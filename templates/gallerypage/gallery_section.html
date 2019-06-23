@@ -1,0 +1,46 @@
+<!-- Gallery Section -->
+<section id="gallery" class="projects-section bg-light">
+  <div class="d-flex justify-content-center align-items-center mb-50px">
+    <h1>Gallery</h1>
+  </div>
+  <div class="w-60 mx-auto" data-infinite-scroll='{ "path": ".pagination__next", "append": ".post", "history": false }'>
+
+
+
+    <div class="row-gallery-page">
+      <div class="column-gallery-page">
+        {% for i in range(x) %}
+        <a href="{{ gallery[i].link }}" data-lightbox="gallery">
+          <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="column-gallery-page">
+        {% for i in range(x,x+x) %}
+        <a href="{{ gallery[i].link }}" data-lightbox="gallery">
+          <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="column-gallery-page">
+        {% for i in range(x+x,x+x+x) %}
+        <a href="{{ gallery[i].link }}" data-lightbox="gallery">
+          <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="column-gallery-page">
+        {% for i in range(x+x+x,y) %}
+        <a href="{{ gallery[i].link }}" data-lightbox="gallery">
+          <img src="{{ gallery[i].link }}" class="lazyload img-hover">
+        </a>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+</section>
